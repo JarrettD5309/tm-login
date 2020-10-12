@@ -9,7 +9,9 @@ function LoginScreen() {
         'Coolvetica': require('../assets/fonts/coolvetica.ttf'),
     });
 
-    const [value, onChangeText] = React.useState('');
+    const [loginUsername, setLoginUsername] = React.useState("");
+
+    const [loginPassword, setLoginPassword] = React.useState("");
 
     // checks if font has been loaded
     if (!fontsLoaded) {
@@ -35,17 +37,18 @@ function LoginScreen() {
                     </Text>
                     <TextInput 
                     style={styles.input}
-                    onChangeText={text => onChangeText(text)}
-                    value={value}
+                    onChangeText={text => setLoginUsername(text)}
+                    value={loginUsername}
                     placeholder={'Username'}
                     placeholderTextColor={'black'}
                     />
                     <TextInput 
                     style={styles.input}
-                    onChangeText={text => onChangeText(text)}
-                    value={value}
+                    onChangeText={text => setLoginPassword(text)}
+                    value={loginPassword}
                     placeholder={'Password'}
                     placeholderTextColor={'black'}
+                    secureTextEntry
                     />
                     <TouchableOpacity style={styles.signInButton}>
                         <Text style={[styles.baseText,styles.signInButtonText]}>SIGN IN</Text>
